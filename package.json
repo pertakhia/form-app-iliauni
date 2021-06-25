@@ -1,0 +1,27 @@
+{
+  "name": "form-app-iliauni",
+  "version": "1.0.0",
+  "description": "form app",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pertakhia/form-app-iliauni.git"
+  },
+  "keywords": [
+    "research",
+    "form",
+    "poling"
+  ],
+  "author": "Shota Pertakhia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pertakhia/form-app-iliauni/issues"
+  },
+  "homepage": "https://github.com/pertakhia/form-app-iliauni#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
