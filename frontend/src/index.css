@@ -16,10 +16,8 @@ code {
 }
 
 
-.container {
-  width: 1280px;
-  max-width: 100%;
-  margin: 30px auto;
+main {
+  min-height: 80vh;
 }
 
 html, body, div, span, applet, object, iframe,
