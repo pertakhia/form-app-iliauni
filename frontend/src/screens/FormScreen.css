@@ -1,0 +1,30 @@
+.form-box {
+    width: 700px;
+    padding: 10px;
+    background-color: aquamarine;
+    margin: 10px 0;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+.center-width {
+    width: 900px;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+}
+
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+.radio-box {
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+}
