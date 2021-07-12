@@ -15,23 +15,38 @@ const FormScreen = () => {
      * აქ უნდა იყოს რექუესთები და შესაბამისად no და yes ზე წამოიღებ იმ ობიექტებს რაც გჭირდება
      *
      * */
-    const yes = (m) => {
+
+    const yes = (m, i) => {
         const newQuestion = data.find((d) => d.id === m.yes) // ამის წაშლა მოგიწევს როცა რექუესტს გააკეთებ და რაც მოგივა იმას ჩასვამ ობიექტად პირდაპირ
+        const tmp = form
+        const newFrom = m.chosen ? tmp.slice(0, i + 1) : form
+        const correctArray = returnCorrectArray(newFrom, m, `diax`)
         if (newQuestion) {
-            setForm([...form, {
+            setForm([...correctArray, {
                 ...newQuestion,
-                margin: true
+                margin: true,
             }])
         }
     }
-    const no = (m) => {
+    const no = (m, i) => {
         const newQuestion = data.find((d) => d.id === m.no)
+        const tmp = form
+        const newFrom = m.chosen ? tmp.slice(0, i + 1) : form
+        const correctArray = returnCorrectArray(newFrom, m, `ara`)
         if (newQuestion) {
-            setForm([...form, {
+            setForm([...correctArray, {
                 ...newQuestion,
-                margin: false
+                margin: false,
             }])
         }
+    }
+
+    const returnCorrectArray = (array, element, key) => {
+        return array.map(el => el.id === element.id ? ({
+                ...el,
+                chosen: key
+            }) : el
+        )
     }
 
 
@@ -54,18 +69,20 @@ const FormScreen = () => {
                                     {
                                         m.no && m.yes && <>
                                             <div className='radio-box'>
-                                                <input id='diax'
-                                                       name="test"
+                                                <input id={`diax_${i}`}
+                                                       name={`diax_${i}`}
                                                        type="radio"
-                                                       onChange={() => yes(m)}
+                                                       checked={m.chosen === `diax`}
+                                                       onChange={() => yes(m, i)}
                                                 />
                                                 <label htmlFor='diax'> დიახ</label>
                                             </div>
                                             <div className='radio-box'>
-                                                <input id='ara'
-                                                       name="test"
+                                                <input id={`ara_${i}`}
+                                                       name={`ara_${i}`}
                                                        type="radio"
-                                                       onChange={() => no(m)}
+                                                       checked={m.chosen === `ara`}
+                                                       onChange={() => no(m, i)}
                                                 />
                                                 <label htmlFor='ara'>არა</label>
                                             </div>
